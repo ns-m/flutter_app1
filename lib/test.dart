@@ -31,12 +31,22 @@ void main(List<String> args) {
   // print('copyList : $copyList');
   // print('copyList2 : $copyList2');
 
-  const x = -1;
-  int? maybeVal;
-  if (x > 0) {
-    maybeVal = x;
+  // const x = -1;
+  // int? maybeVal;
+  // if (x > 0) {
+  //   maybeVal = x;
+  // }
+  // maybeVal ??= 0;
+  // final val = maybeVal;
+  // print(val);
+
+  const cities = <String?>['London', 'Paris', null];
+  for (var element in cities) {
+    if (element != null) {
+      print(element.toUpperCase());
+    }
   }
-  maybeVal ??= 0;
-  final val = maybeVal;
-  print(val);
+  for (var element in cities) {
+    print(element?.toUpperCase());
+  }
 }
