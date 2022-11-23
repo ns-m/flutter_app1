@@ -1,16 +1,22 @@
 void main(List<String> args) {
-  Person man1 = Person('John', 'Male', 38);
+  Person man1 = Person();
+
   man1.showData();
 
-  Person woman1 = Person('Mary', 'Female', 27);
-  woman1.anyShowData();
+  man1.addData('John', 'Male', 43);
+  man1.showData();
+
+  man1.name = 'Lee';
+  man1.age = 31;
+  man1.sex = 'Male';
+  man1.showData();
 }
 
 class Person {
   String? name, sex;
   int? age;
 
-  Person(String name, sex, int age) {
+  void addData(String name, sex, int age) {
     this.name = name;
     this.sex = sex;
     this.age = age;
