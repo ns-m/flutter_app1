@@ -8,10 +8,25 @@ String? prompt(String promptText) {
 
 double? promptDouble() {
   print('Enter a number : ');
-  double myNum = double.parse(stdin.readLineSync()!);
-  return myNum;
+  String? input = stdin.readLineSync();
+  if (input != null) {
+    double myNum = double.parse(input);
+    return myNum;
+  }
 }
 
 void main(List<String> args) {
-  print('Enter first number: ');
+  double num1 = promptDouble()!;
+  double num2 = promptDouble()!;
+  String? op = prompt('Enter an operation (+, -, /, *): ');
+  if (op == '+') {
+    print('$num1 + $num2 = ${num1 + num2}');
+  } else if (op == '-') {
+    print('$num1 - $num2 = ${num1 - num2}');
+  } else if (op == '/') {
+    print('$num1 / $num2 = ${num1 / num2}');
+  } else {
+    print('$num1 * $num2 = ${num1 * num2}');
+  }
+  ;
 }
