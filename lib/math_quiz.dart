@@ -1,11 +1,25 @@
+import 'dart:io';
+
 class MathQuestion {
   late String question;
   late double answer;
 
-  MathQuestion(String aQuestion, double aAnswer) {
-    this.question = aQuestion;
-    this.answer = aAnswer;
+  MathQuestion(String question, double answer) {
+    this.question = question;
+    this.answer = answer;
   }
+}
+
+String? prompt(String promptText) {
+  print('The prompt is : $promptText');
+  String? answer = stdin.readLineSync();
+  return answer;
+}
+
+double? promptDouble(String promptText) {
+  print(promptText);
+  double myNum = double.parse(stdin.readLineSync()!);
+  return myNum;
 }
 
 void main(List<String> args) {
@@ -16,6 +30,11 @@ void main(List<String> args) {
   ];
 
   for (MathQuestion mathQuestion in questions) {
-    //double userAnswer = 00;
+    double userAnswer = promptDouble(mathQuestion.question)!;
+    if (userAnswer == mathQuestion.question) {
+      print('Correct!');
+    } else {
+      print('Incorect! The answer was ${mathQuestion.answer}! Loser!');
+    }
   }
 }
