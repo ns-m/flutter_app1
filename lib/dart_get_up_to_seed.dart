@@ -1,31 +1,3 @@
-void main(List<String> args) {
-  final names = ['John', 'Lee', 'Kate'];
-  final nameLength = names.map((name) => name.length);
-  // nameLength[0]; it`s mistake
-  final nameLength2 = names.map((name) => name.length).toList();
-  print(nameLength2[0]);
-
-  final nameLengthFiltered = names.where((name) => name.length >= 4).toList();
-  print(nameLengthFiltered);
-
-  for (int i = 0; i < nameLengthFiltered.length; i++) {
-    print(nameLengthFiltered[i]);
-  }
-
-  for (final name in nameLengthFiltered) {
-    print(name);
-  }
-  print('--------');
-  nameLengthFiltered.forEach((name) => print(name));
-  nameLengthFiltered.forEach(print);
-
-  print('--------');
-  myData();
-
-  print('////////');
-  myEnum();
-}
-
 void optionalPositionParams(int x, double y, [String? greeting]) {
   optionalPositionParams(5, 3.5);
   optionalPositionParams(5, 3.5, 'hi');
@@ -100,4 +72,47 @@ void myEnum() {
     default:
       break;
   }
+}
+
+class User {
+  final String name;
+  final String photoUrl;
+
+  const User({
+    required this.name,
+    required this.photoUrl,
+  });
+}
+
+void main(List<String> args) {
+  final names = ['John', 'Lee', 'Kate'];
+  final nameLength = names.map((name) => name.length);
+  // nameLength[0]; it`s mistake
+  final nameLength2 = names.map((name) => name.length).toList();
+  print(nameLength2[0]);
+
+  final nameLengthFiltered = names.where((name) => name.length >= 4).toList();
+  print(nameLengthFiltered);
+
+  for (int i = 0; i < nameLengthFiltered.length; i++) {
+    print(nameLengthFiltered[i]);
+  }
+
+  for (final name in nameLengthFiltered) {
+    print(name);
+  }
+  print('--------');
+  nameLengthFiltered.forEach((name) => print(name));
+  nameLengthFiltered.forEach(print);
+
+  print('--------');
+  myData();
+
+  print('////////');
+  myEnum();
+
+  User myUser1 = const User(
+    name: 'John Doe',
+    photoUrl: 'http:/pics.com/asdf',
+  );
 }
