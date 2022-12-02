@@ -82,6 +82,15 @@ class User {
     required this.name,
     required this.photoUrl,
   });
+
+  bool hasLongName() {
+    return name.length > 10;
+  }
+
+  static void myMethod() {}
+
+  static int minNameLength = 3;
+  static const minNameLength2 = 4;
 }
 
 void main(List<String> args) {
