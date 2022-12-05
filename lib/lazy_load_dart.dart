@@ -18,3 +18,7 @@ void main(List<String> args) {
 0 0 0 0 1 0 0 1 = 9 ((2 ^ 3 = 8) + (2 ^ 0 = 1))
 0 0 0 0 1 0 1 0 = 10 ((2 ^ 3 = 8) + (2 ^ 1 = 2))
 */
+
+int a = 0;
+
+int sumTest(int x1, int y1) => x1 + y1;
