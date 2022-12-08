@@ -148,5 +148,22 @@ void main(List<String> args) {
     5555,
     43679,
   ];
+  print(listInt);
+  listInt.add(2345);
+  print(listInt);
+
+  final listInt2 = const [
+    1,
+    2,
+    3,
+    56,
+    77,
+    765,
+  ];
+  print(listInt2);
+  // listInt2.add(2345);
+  // print(listInt2);
+  final result = listInt2.join(',');
+  print(result);
 }
 // 
