@@ -191,5 +191,17 @@ void main(List<String> args) {
     '3344 467913': 'Mary Poppins',
     '4455 917382': 'Harry Potter',
   };
+
+  final resultMap = mapOfPersons['1122 457812'];
+  print(resultMap);
+
+  final Set<String> setOfPersons = {
+    'Bruce Lee',
+    'John Doe',
+    'Mary Poppins',
+    'Harry Potter',
+    'Bruce Lee',
+  };
+  print(setOfPersons);
 }
 // 
