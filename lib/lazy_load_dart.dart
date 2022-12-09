@@ -134,36 +134,62 @@
 // }
 
 void main(List<String> args) {
-  final listInt = [
-    1,
-    2,
-    3,
-    56,
-    77,
-    765,
-    4323,
-    777,
-    1234,
-    36646,
-    5555,
-    43679,
-  ];
-  print(listInt);
-  listInt.add(2345);
-  print(listInt);
+  // final listInt = [
+  //   1,
+  //   2,
+  //   3,
+  //   56,
+  //   77,
+  //   765,
+  //   4323,
+  //   777,
+  //   1234,
+  //   36646,
+  //   5555,
+  //   43679,
+  // ];
+  // print(listInt);
+  // listInt.add(2345);
+  // print(listInt);
 
-  final listInt2 = const [
-    1,
-    2,
-    3,
-    56,
-    77,
-    765,
-  ];
-  print(listInt2);
-  // listInt2.add(2345);
+  // final listInt2 = const [
+  //   1,
+  //   2,
+  //   3,
+  //   56,
+  //   77,
+  //   765,
+  // ];
   // print(listInt2);
-  final result = listInt2.join(',');
-  print(result);
+  // // listInt2.add(2345);
+  // // print(listInt2);
+  // final result = listInt2.join(',');
+  // print(result);
+
+  // final resultMap = listInt2.map((e) => e * 2).toList();
+  // print(resultMap);
+
+  final Map<String, int> myIntMap = {
+    '1': 11,
+    '2': 22,
+    '3': 33,
+    '4': 44,
+  };
+  print(myIntMap);
+  print(myIntMap['1']);
+
+  final listOfPersons = [
+    'Bruce Lee',
+    'John Doe',
+    'Mary Poppins',
+    'Harry Potter',
+  ];
+
+  final mapOfPersons = {
+    '1122 457812': 'Bruce Lee',
+    '2233 568923': 'John Doe',
+    '3344 467913': 'Mary Poppins',
+    '4455 917382': 'Harry Potter',
+  };
 }
 // 
