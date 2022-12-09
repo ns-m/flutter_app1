@@ -132,89 +132,120 @@
 //   print(myData);
 //   print(myNum);
 // }
+//
+// void main(List<String> args) {
+// final listInt = [
+//   1,
+//   2,
+//   3,
+//   56,
+//   77,
+//   765,
+//   4323,
+//   777,
+//   1234,
+//   36646,
+//   5555,
+//   43679,
+// ];
+// print(listInt);
+// listInt.add(2345);
+// print(listInt);
+
+// final listInt2 = const [
+//   1,
+//   2,
+//   3,
+//   56,
+//   77,
+//   765,
+// ];
+// print(listInt2);
+// // listInt2.add(2345);
+// // print(listInt2);
+// final result = listInt2.join(',');
+// print(result);
+
+// final resultMap = listInt2.map((e) => e * 2).toList();
+// print(resultMap);
+
+// final Map<String, int> myIntMap = {
+//   '1': 11,
+//   '2': 22,
+//   '3': 33,
+//   '4': 44,
+// };
+// print(myIntMap);
+// print(myIntMap['1']);
+
+// final listOfPersons = [
+//   'Bruce Lee',
+//   'John Doe',
+//   'Mary Poppins',
+//   'Harry Potter',
+// ];
+
+// final mapOfPersons = {
+//   '1122 457812': 'Bruce Lee',
+//   '2233 568923': 'John Doe',
+//   '3344 467913': 'Mary Poppins',
+//   '4455 917382': 'Harry Potter',
+// };
+
+// final resultMap = mapOfPersons['1122 457812'];
+// print(resultMap);
+
+// final Set<String> setOfPersons = {
+//   'Bruce Lee',
+//   'John Doe',
+//   'Mary Poppins',
+//   'Harry Potter',
+//   'Bruce Lee',
+// };
+// print(setOfPersons);
+//   final listOfChair = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+//   for (var i = 0; i < listOfChair.length; i++) {
+//     print('$i: ${listOfChair[i]}');
+//   }
+
+//   for (var element in listOfChair) {
+//     print('$element');
+//   }
+
+//   for (var element in listOfChair.asMap().entries) {
+//     print('${element.key}: ${element.value}');
+//   }
+// }
+//
+
+class Employer {
+  final String name;
+  final String surname;
+  final String passport;
+  final int age;
+  final List<int> salary;
+
+  Employer(this.name, this.surname, this.passport, this.age, this.salary);
+}
 
 void main(List<String> args) {
-  // final listInt = [
-  //   1,
-  //   2,
-  //   3,
-  //   56,
-  //   77,
-  //   765,
-  //   4323,
-  //   777,
-  //   1234,
-  //   36646,
-  //   5555,
-  //   43679,
-  // ];
-  // print(listInt);
-  // listInt.add(2345);
-  // print(listInt);
+  final oneEmployer = Employer(
+    'Bruce',
+    'Lee',
+    '0102 234512',
+    41,
+    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
+  );
 
-  // final listInt2 = const [
-  //   1,
-  //   2,
-  //   3,
-  //   56,
-  //   77,
-  //   765,
-  // ];
-  // print(listInt2);
-  // // listInt2.add(2345);
-  // // print(listInt2);
-  // final result = listInt2.join(',');
-  // print(result);
+  final twoEmployer = Employer(
+    'John',
+    'Do',
+    '0102 234556',
+    25,
+    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
+  );
 
-  // final resultMap = listInt2.map((e) => e * 2).toList();
-  // print(resultMap);
-
-  // final Map<String, int> myIntMap = {
-  //   '1': 11,
-  //   '2': 22,
-  //   '3': 33,
-  //   '4': 44,
-  // };
-  // print(myIntMap);
-  // print(myIntMap['1']);
-
-  // final listOfPersons = [
-  //   'Bruce Lee',
-  //   'John Doe',
-  //   'Mary Poppins',
-  //   'Harry Potter',
-  // ];
-
-  // final mapOfPersons = {
-  //   '1122 457812': 'Bruce Lee',
-  //   '2233 568923': 'John Doe',
-  //   '3344 467913': 'Mary Poppins',
-  //   '4455 917382': 'Harry Potter',
-  // };
-
-  // final resultMap = mapOfPersons['1122 457812'];
-  // print(resultMap);
-
-  // final Set<String> setOfPersons = {
-  //   'Bruce Lee',
-  //   'John Doe',
-  //   'Mary Poppins',
-  //   'Harry Potter',
-  //   'Bruce Lee',
-  // };
-  // print(setOfPersons);
-  final listOfChair = ['a', 'b', 'c', 'd', 'e', 'f'];
-
-  for (var i = 0; i < listOfChair.length; i++) {
-    print('$i: ${listOfChair[i]}');
-  }
-
-  for (var element in listOfChair) {
-    print('$element');
-  }
-
-  for (var element in listOfChair.asMap().entries) {
-    print('${element.key}: ${element.value}');
-  }
+  print(oneEmployer);
+  print(twoEmployer);
 }
-// 
