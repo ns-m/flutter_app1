@@ -227,6 +227,31 @@ class Employer {
   final List<int> salary;
 
   Employer(this.name, this.surname, this.passport, this.age, this.salary);
+
+  double avgSalary() {
+    if (salary.isEmpty) {
+      return 0;
+    }
+    return salary.reduce((value, element) => value += element) / salary.length;
+  }
+
+  @override
+  String toString() {
+    return '$name $surname $passport $age $salary';
+  }
+}
+
+class Square {
+  final int length;
+  final int weight;
+  Square(int side)
+      : length = side,
+        weight = side;
+  Square.wrong(this.length, this.weight);
+  @override
+  String toString() {
+    return 'length: $length,  weight: $weight';
+  }
 }
 
 void main(List<String> args) {
@@ -235,7 +260,7 @@ void main(List<String> args) {
     'Lee',
     '0102 234512',
     41,
-    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
+    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 210],
   );
 
   final twoEmployer = Employer(
@@ -248,4 +273,7 @@ void main(List<String> args) {
 
   print(oneEmployer);
   print(twoEmployer);
+  print(oneEmployer.avgSalary());
+  print(Square(20));
+  print(Square.wrong(23, 45));
 }
