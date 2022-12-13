@@ -239,19 +239,55 @@ class Employer {
   String toString() {
     return '$name $surname $passport $age $salary';
   }
+
+  // @override
+  // bool operator == (Object other) =>
+  // identical(this, other) ||
+  // other is Employer &&
+  // runtimeType = other.runtimeType &&
+  // name = other.name &&
+  // surname = other.surname &&
+  // passport = other.passport &&
+  // age = other.age &&
+  // ListEquality().equals(salary, other.salary);
 }
 
 class Square {
   final int length;
   final int weight;
+
   Square(int side)
       : length = side,
-        weight = side;
+        weight = side {
+    print(length * weight);
+  }
+
   Square.wrong(this.length, this.weight);
+
   @override
   String toString() {
     return 'length: $length,  weight: $weight';
   }
+}
+
+class SquareGet {
+  final int _side;
+  int get length => _side;
+  int get weight => _side;
+  int get square => length * weight;
+
+  SquareGet(this._side);
+
+  @override
+  String toString() {
+    return 'length: $length,  weight: $weight';
+  }
+}
+
+class Example {
+  String myString;
+
+  Example(this.myString);
 }
 
 void main(List<String> args) {
@@ -271,9 +307,29 @@ void main(List<String> args) {
     [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
   );
 
-  print(oneEmployer);
-  print(twoEmployer);
-  print(oneEmployer.avgSalary());
-  print(Square(20));
-  print(Square.wrong(23, 45));
+  final threeEmployer = Employer(
+    'John',
+    'Do',
+    '0102 234556',
+    25,
+    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
+  );
+
+  // print(oneEmployer);
+  // print(twoEmployer);
+  // print(oneEmployer.avgSalary());
+  // print('--------');
+  // print(Square(20));
+  // print(Square.wrong(23, 45));
+  // print('--------');
+  // print(SquareGet(10));
+  // print(SquareGet(10).square);
+
+  Example a = Example('aaaaa');
+  Example b = a;
+  print(a.myString);
+  print(b.myString);
+  a.myString = 'bbbbb';
+  print(a.myString);
+  print(b.myString);
 }
