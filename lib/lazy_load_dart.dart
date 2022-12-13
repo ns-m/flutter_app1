@@ -219,117 +219,209 @@
 // }
 //
 
-class Employer {
-  final String name;
-  final String surname;
-  final String passport;
-  final int age;
-  final List<int> salary;
+// class Employer {
+//   final String name;
+//   final String surname;
+//   final String passport;
+//   final int age;
+//   final List<int> salary;
 
-  Employer(this.name, this.surname, this.passport, this.age, this.salary);
+//   Employer(this.name, this.surname, this.passport, this.age, this.salary);
 
-  double avgSalary() {
-    if (salary.isEmpty) {
-      return 0;
-    }
-    return salary.reduce((value, element) => value += element) / salary.length;
-  }
+//   double avgSalary() {
+//     if (salary.isEmpty) {
+//       return 0;
+//     }
+//     return salary.reduce((value, element) => value += element) / salary.length;
+//   }
 
-  @override
-  String toString() {
-    return '$name $surname $passport $age $salary';
-  }
+//   @override
+//   String toString() {
+//     return '$name $surname $passport $age $salary';
+//   }
 
-  // @override
-  // bool operator == (Object other) =>
-  // identical(this, other) ||
-  // other is Employer &&
-  // runtimeType = other.runtimeType &&
-  // name = other.name &&
-  // surname = other.surname &&
-  // passport = other.passport &&
-  // age = other.age &&
-  // ListEquality().equals(salary, other.salary);
+// @override
+// bool operator == (Object other) =>
+// identical(this, other) ||
+// other is Employer &&
+// runtimeType = other.runtimeType &&
+// name = other.name &&
+// surname = other.surname &&
+// passport = other.passport &&
+// age = other.age &&
+// ListEquality().equals(salary, other.salary);
+//}
+
+// class Square {
+//   final int length;
+//   final int weight;
+
+//   Square(int side)
+//       : length = side,
+//         weight = side {
+//     print(length * weight);
+//   }
+
+//   Square.wrong(this.length, this.weight);
+
+//   @override
+//   String toString() {
+//     return 'length: $length,  weight: $weight';
+//   }
+// }
+
+// class SquareGet {
+//   final int _side;
+//   int get length => _side;
+//   int get weight => _side;
+//   int get square => length * weight;
+
+//   SquareGet(this._side);
+
+//   @override
+//   String toString() {
+//     return 'length: $length,  weight: $weight';
+//   }
+// }
+
+// class Example {
+//   String myString;
+
+//   Example(this.myString);
+// }
+
+// void main(List<String> args) {
+//   final oneEmployer = Employer(
+//     'Bruce',
+//     'Lee',
+//     '0102 234512',
+//     41,
+//     [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 210],
+//   );
+
+//   final twoEmployer = Employer(
+//     'John',
+//     'Do',
+//     '0102 234556',
+//     25,
+//     [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
+//   );
+
+//   final threeEmployer = Employer(
+//     'John',
+//     'Do',
+//     '0102 234556',
+//     25,
+//     [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
+//   );
+
+// print(oneEmployer);
+// print(twoEmployer);
+// print(oneEmployer.avgSalary());
+// print('--------');
+// print(Square(20));
+// print(Square.wrong(23, 45));
+// print('--------');
+// print(SquareGet(10));
+// print(SquareGet(10).square);
+
+// Example a = Example('aaaaa');
+// Example b = a;
+// print(a.myString);
+// print(b.myString);
+// a.myString = 'bbbbb';
+// print(a.myString);
+// print(b.myString);
+//}
+
+import 'dart:math';
+
+enum Color {
+  Red,
+  Green,
+  Blue,
+  Yellow,
 }
 
-class Square {
-  final int length;
-  final int weight;
+class Shape {
+  double get square => 0.0;
+  final Color color;
 
-  Square(int side)
-      : length = side,
-        weight = side {
-    print(length * weight);
-  }
-
-  Square.wrong(this.length, this.weight);
-
-  @override
-  String toString() {
-    return 'length: $length,  weight: $weight';
-  }
+  Shape(this.color);
 }
 
-class SquareGet {
-  final int _side;
-  int get length => _side;
-  int get weight => _side;
-  int get square => length * weight;
+class Rectangle extends Shape {
+  final int sideA;
+  final int sideB;
+  final int sideC;
 
-  SquareGet(this._side);
+  Rectangle(
+    super.color,
+    this.sideA,
+    this.sideB,
+    this.sideC,
+  );
 
   @override
-  String toString() {
-    return 'length: $length,  weight: $weight';
-  }
+  double get square => (sideA * sideB * sideC).toDouble();
 }
 
-class Example {
-  String myString;
+class Circle extends Shape {
+  final double radius;
 
-  Example(this.myString);
+  Circle(
+    super.color,
+    this.radius,
+  );
+
+  @override
+  double get square => pi * radius * 0.5;
+}
+
+class Square extends Shape {
+  final int side;
+
+  Square(
+    super.color,
+    this.side,
+  );
+
+  @override
+  double get square => (side * side).toDouble();
+}
+
+class SquareWrong extends Square {
+  final int sideX;
+
+  SquareWrong(
+    Color color,
+    int side,
+    this.sideX,
+  ) : super(color, side);
+
+  @override
+  double get square => (side * sideX).toDouble();
 }
 
 void main(List<String> args) {
-  final oneEmployer = Employer(
-    'Bruce',
-    'Lee',
-    '0102 234512',
-    41,
-    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 210],
-  );
+  final shapeOne = Shape(Color.Blue);
+  final rectangleOne = Rectangle(Color.Green, 10, 10, 20);
+  final circleOne = Circle(Color.Red, 5.0);
+  final squareOne = Square(Color.Yellow, 15);
+  final squareWrongOne = SquareWrong(Color.Blue, 10, 20);
 
-  final twoEmployer = Employer(
-    'John',
-    'Do',
-    '0102 234556',
-    25,
-    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
-  );
+  print(shapeOne.color);
+  print(shapeOne.square);
 
-  final threeEmployer = Employer(
-    'John',
-    'Do',
-    '0102 234556',
-    25,
-    [100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200],
-  );
+  print(rectangleOne.color);
+  print(rectangleOne.square);
 
-  // print(oneEmployer);
-  // print(twoEmployer);
-  // print(oneEmployer.avgSalary());
-  // print('--------');
-  // print(Square(20));
-  // print(Square.wrong(23, 45));
-  // print('--------');
-  // print(SquareGet(10));
-  // print(SquareGet(10).square);
+  print(circleOne.color);
+  print(circleOne.square);
 
-  Example a = Example('aaaaa');
-  Example b = a;
-  print(a.myString);
-  print(b.myString);
-  a.myString = 'bbbbb';
-  print(a.myString);
-  print(b.myString);
+  print(squareOne.color);
+  print(squareOne.square);
+
+  print(squareWrongOne.color);
+  print(squareWrongOne.square);
 }
