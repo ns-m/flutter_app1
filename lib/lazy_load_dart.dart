@@ -343,11 +343,18 @@ enum Color {
   Yellow,
 }
 
-class Shape {
-  double get square => 0.0;
+//class Shape {
+abstract class Shape {
+  //double get square => 0.0;
+  double get square;
   final Color color;
 
   Shape(this.color);
+
+  @override
+  String toString() {
+    return '$square $color';
+  }
 }
 
 class Rectangle extends Shape {
@@ -364,6 +371,11 @@ class Rectangle extends Shape {
 
   @override
   double get square => (sideA * sideB * sideC).toDouble();
+
+  @override
+  String toString() {
+    return super.toString() + ' $sideA $sideB $sideC';
+  }
 }
 
 class Circle extends Shape {
@@ -388,6 +400,14 @@ class Square extends Shape {
 
   @override
   double get square => (side * side).toDouble();
+
+  int side1() {
+    return side;
+  }
+
+  int side2() {
+    return side;
+  }
 }
 
 class SquareWrong extends Square {
@@ -404,24 +424,32 @@ class SquareWrong extends Square {
 }
 
 void main(List<String> args) {
-  final shapeOne = Shape(Color.Blue);
+  //final shapeOne = Shape(Color.Blue);
   final rectangleOne = Rectangle(Color.Green, 10, 10, 20);
   final circleOne = Circle(Color.Red, 5.0);
   final squareOne = Square(Color.Yellow, 15);
   final squareWrongOne = SquareWrong(Color.Blue, 10, 20);
 
-  print(shapeOne.color);
-  print(shapeOne.square);
+  // print(shapeOne.color);
+  // print(shapeOne.square);
 
-  print(rectangleOne.color);
-  print(rectangleOne.square);
+  // print(rectangleOne.color);
+  // print(rectangleOne.square);
 
-  print(circleOne.color);
-  print(circleOne.square);
+  // print(circleOne.color);
+  // print(circleOne.square);
 
-  print(squareOne.color);
-  print(squareOne.square);
+  // print(squareOne.color);
+  // print(squareOne.square);
 
-  print(squareWrongOne.color);
-  print(squareWrongOne.square);
+  // print(squareWrongOne.color);
+  // print(squareWrongOne.square);
+
+  // squareOne.side1();
+
+  //print(shapeOne);
+  print(rectangleOne);
+  print(circleOne);
+  print(squareOne);
+  print(squareWrongOne);
 }
