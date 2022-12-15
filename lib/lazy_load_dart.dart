@@ -334,122 +334,221 @@
 // print(b.myString);
 //}
 
+import 'dart:ffi';
 import 'dart:math';
 
-enum Color {
-  Red,
-  Green,
-  Blue,
-  Yellow,
+// enum Color {
+//   Red,
+//   Green,
+//   Blue,
+//   Yellow,
+// }
+
+// //class Shape {
+// abstract class Shape {
+//   //double get square => 0.0;
+//   double get square;
+//   final Color color;
+
+//   Shape(this.color);
+
+//   @override
+//   String toString() {
+//     return '$square $color';
+//   }
+// }
+
+// class Rectangle extends Shape {
+//   final int sideA;
+//   final int sideB;
+//   final int sideC;
+
+//   Rectangle(
+//     super.color,
+//     this.sideA,
+//     this.sideB,
+//     this.sideC,
+//   );
+
+//   @override
+//   double get square => (sideA * sideB * sideC).toDouble();
+
+//   @override
+//   String toString() {
+//     return super.toString() + ' $sideA $sideB $sideC';
+//   }
+// }
+
+// class Circle extends Shape {
+//   final double radius;
+
+//   Circle(
+//     super.color,
+//     this.radius,
+//   );
+
+//   @override
+//   double get square => pi * radius * 0.5;
+// }
+
+// class Square extends Shape {
+//   final int side;
+
+//   Square(
+//     super.color,
+//     this.side,
+//   );
+
+//   @override
+//   double get square => (side * side).toDouble();
+
+//   int side1() {
+//     return side;
+//   }
+
+//   int side2() {
+//     return side;
+//   }
+// }
+
+// class SquareWrong extends Square {
+//   final int sideX;
+
+//   SquareWrong(
+//     Color color,
+//     int side,
+//     this.sideX,
+//   ) : super(color, side);
+
+//   @override
+//   double get square => (side * sideX).toDouble();
+// }
+
+// void main(List<String> args) {
+//   //final shapeOne = Shape(Color.Blue);
+//   final rectangleOne = Rectangle(Color.Green, 10, 10, 20);
+//   final circleOne = Circle(Color.Red, 5.0);
+//   final squareOne = Square(Color.Yellow, 15);
+//   final squareWrongOne = SquareWrong(Color.Blue, 10, 20);
+
+//   // print(shapeOne.color);
+//   // print(shapeOne.square);
+
+//   // print(rectangleOne.color);
+//   // print(rectangleOne.square);
+
+//   // print(circleOne.color);
+//   // print(circleOne.square);
+
+//   // print(squareOne.color);
+//   // print(squareOne.square);
+
+//   // print(squareWrongOne.color);
+//   // print(squareWrongOne.square);
+
+//   // squareOne.side1();
+
+//   //print(shapeOne);
+//   print(rectangleOne);
+//   print(circleOne);
+//   print(squareOne);
+//   print(squareWrongOne);
+// }
+
+// abstract class Things {
+//   final double weight;
+
+//   Things(this.weight);
+
+//   void put();
+// }
+
+abstract class ID {
+  final int id;
+  ID(this.id);
 }
 
-//class Shape {
-abstract class Shape {
-  //double get square => 0.0;
-  double get square;
-  final Color color;
+abstract class Cookware {
+  void put();
+  void fill();
+}
 
-  Shape(this.color);
+abstract class Heavyweight {
+  final double weight;
+  Heavyweight(this.weight);
+}
+
+// class Cup extends Heavyweight, Cookware {
+//   Cup(super.weight);
+
+//   @override
+//   void put() {
+//     print('put cup');
+//   }
+// }
+
+class Cup implements Heavyweight, Cookware, ID {
+  final int id;
+  Cup(this.id, this.weight);
 
   @override
-  String toString() {
-    return '$square $color';
+  void put() {
+    print('put cup');
+  }
+
+  @override
+  void fill() {
+    // TODO: implement fill
+    print('fill cup');
+  }
+
+  final double weight;
+  // @override
+  // // TODO: implement weight
+  // double get weight => throw UnimplementedError();
+}
+
+class Plate implements Heavyweight, Cookware {
+  Plate(this.weight);
+
+  final double weight;
+
+  @override
+  void put() {
+    print('put plate');
+  }
+
+  @override
+  void fill() {
+    // TODO: implement fill
+    print('fill plate');
   }
 }
 
-class Rectangle extends Shape {
-  final int sideA;
-  final int sideB;
-  final int sideC;
-
-  Rectangle(
-    super.color,
-    this.sideA,
-    this.sideB,
-    this.sideC,
-  );
-
-  @override
-  double get square => (sideA * sideB * sideC).toDouble();
-
-  @override
-  String toString() {
-    return super.toString() + ' $sideA $sideB $sideC';
-  }
-}
-
-class Circle extends Shape {
-  final double radius;
-
-  Circle(
-    super.color,
-    this.radius,
-  );
-
-  @override
-  double get square => pi * radius * 0.5;
-}
-
-class Square extends Shape {
-  final int side;
-
-  Square(
-    super.color,
-    this.side,
-  );
-
-  @override
-  double get square => (side * side).toDouble();
-
-  int side1() {
-    return side;
-  }
-
-  int side2() {
-    return side;
-  }
-}
-
-class SquareWrong extends Square {
-  final int sideX;
-
-  SquareWrong(
-    Color color,
-    int side,
-    this.sideX,
-  ) : super(color, side);
-
-  @override
-  double get square => (side * sideX).toDouble();
+class Table implements Heavyweight {
+  Table(this.weight);
+  final double weight;
+  // @override
+  // void put() {
+  //   print('put table');
+  // }
 }
 
 void main(List<String> args) {
-  //final shapeOne = Shape(Color.Blue);
-  final rectangleOne = Rectangle(Color.Green, 10, 10, 20);
-  final circleOne = Circle(Color.Red, 5.0);
-  final squareOne = Square(Color.Yellow, 15);
-  final squareWrongOne = SquareWrong(Color.Blue, 10, 20);
+  final cupOne = Cup(1, 12.2);
+  //print(cupOne.weight);
 
-  // print(shapeOne.color);
-  // print(shapeOne.square);
+  final listOfSome = [
+    Cup(1, 7),
+    Cup(2, 9),
+    Cup(3, 7.5),
+  ];
 
-  // print(rectangleOne.color);
-  // print(rectangleOne.square);
+  double total = 0;
 
-  // print(circleOne.color);
-  // print(circleOne.square);
+  for (var element in listOfSome) {
+    total += element.weight;
+  }
 
-  // print(squareOne.color);
-  // print(squareOne.square);
-
-  // print(squareWrongOne.color);
-  // print(squareWrongOne.square);
-
-  // squareOne.side1();
-
-  //print(shapeOne);
-  print(rectangleOne);
-  print(circleOne);
-  print(squareOne);
-  print(squareWrongOne);
+  print(total);
 }
