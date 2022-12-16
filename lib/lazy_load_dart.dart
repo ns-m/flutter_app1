@@ -487,70 +487,117 @@ abstract class Heavyweight {
 //   }
 // }
 
-class Cup implements Heavyweight, Cookware, ID {
-  final int id;
-  Cup(this.id, this.weight);
+// class Cup implements Heavyweight, Cookware, ID {
+//   final int id;
+//   Cup(this.id, this.weight);
 
-  @override
-  void put() {
-    print('put cup');
+//   @override
+//   void put() {
+//     print('put cup');
+//   }
+
+//   @override
+//   void fill() {
+//     // TODO: implement fill
+//     print('fill cup');
+//   }
+
+//   final double weight;
+//   // @override
+//   // // TODO: implement weight
+//   // double get weight => throw UnimplementedError();
+// }
+
+// class Plate implements Heavyweight, Cookware {
+//   Plate(this.weight);
+
+//   final double weight;
+
+//   @override
+//   void put() {
+//     print('put plate');
+//   }
+
+//   @override
+//   void fill() {
+//     // TODO: implement fill
+//     print('fill plate');
+//   }
+// }
+
+// class Table implements Heavyweight {
+//   Table(this.weight);
+//   final double weight;
+//   // @override
+//   // void put() {
+//   //   print('put table');
+//   // }
+// }
+
+//void main(List<String> args) {
+// final cupOne = Cup(1, 12.2);
+// //print(cupOne.weight);
+
+// final listOfSome = <Heavyweight>[
+//   Cup(1, 7),
+//   Cup(2, 9),
+//   Cup(3, 7.5),
+//   Plate(15),
+//   Table(48000),
+// ];
+
+// double total = 0;
+
+// for (var element in listOfSome) {
+//   total += element.weight;
+// }
+
+// print(total);
+//}
+
+// abstract class Flying {
+//   void fly() {
+//     print('it is flying');
+//   }
+// }
+
+// abstract class Birds {
+//   void talk() {
+//     print('it is talking');
+//   }
+// }
+
+// abstract class Mechanism {
+//   void repair() {
+//     print('it is repairing');
+//   }
+// }
+
+mixin Flying {
+  void fly() {
+    print('it is flying');
   }
-
-  @override
-  void fill() {
-    // TODO: implement fill
-    print('fill cup');
-  }
-
-  final double weight;
-  // @override
-  // // TODO: implement weight
-  // double get weight => throw UnimplementedError();
 }
 
-class Plate implements Heavyweight, Cookware {
-  Plate(this.weight);
-
-  final double weight;
-
-  @override
-  void put() {
-    print('put plate');
-  }
-
-  @override
-  void fill() {
-    // TODO: implement fill
-    print('fill plate');
+mixin Birds {
+  String? phrase;
+  void talk() {
+    print('it is talking');
   }
 }
 
-class Table implements Heavyweight {
-  Table(this.weight);
-  final double weight;
-  // @override
-  // void put() {
-  //   print('put table');
-  // }
+mixin Mechanism {
+  void repair() {
+    print('it is repairing');
+  }
 }
+
+class Duck with Flying, Birds {}
+
+class Airplane with Flying, Mechanism {}
 
 void main(List<String> args) {
-  final cupOne = Cup(1, 12.2);
-  //print(cupOne.weight);
-
-  final listOfSome = <Heavyweight>[
-    Cup(1, 7),
-    Cup(2, 9),
-    Cup(3, 7.5),
-    Plate(15),
-    Table(48000),
-  ];
-
-  double total = 0;
-
-  for (var element in listOfSome) {
-    total += element.weight;
-  }
-
-  print(total);
+  Duck().fly();
+  Duck().talk();
+  Airplane().repair();
 }
