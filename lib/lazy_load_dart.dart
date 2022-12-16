@@ -538,10 +538,12 @@ void main(List<String> args) {
   final cupOne = Cup(1, 12.2);
   //print(cupOne.weight);
 
-  final listOfSome = [
+  final listOfSome = <Heavyweight>[
     Cup(1, 7),
     Cup(2, 9),
     Cup(3, 7.5),
+    Plate(15),
+    Table(48000),
   ];
 
   double total = 0;
