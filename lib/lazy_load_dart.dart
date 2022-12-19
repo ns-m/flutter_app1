@@ -618,10 +618,39 @@ abstract class Heavyweight {
 
 class Car {
   int currentSpeed = 0;
+  static int totalCarCount = 0;
+
+  final double lenght;
+  static const double weight = 10;
+
+  Car(this.lenght);
+
+  double square() {
+    return lenght * weight;
+  }
 
   void printCurrentSpeed() {
     print(currentSpeed);
   }
+
+  static void printTotalCarCount() {
+    print(totalCarCount);
+  }
 }
 
-void main(List<String> args) {}
+class Settings {
+  static const minPasswordLenght = 6;
+  static const serverUrl = 'http://url.com';
+}
+
+void main(List<String> args) {
+  final carOne = Car(15);
+  carOne.currentSpeed = 100;
+  carOne.printCurrentSpeed();
+
+  Car.totalCarCount = 224;
+  Car.printTotalCarCount();
+
+  Settings.minPasswordLenght;
+  Settings.serverUrl;
+}
