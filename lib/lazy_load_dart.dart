@@ -573,31 +573,45 @@ abstract class Heavyweight {
 //   }
 // }
 
-mixin Flying {
-  void fly() {
-    print('it is flying');
-  }
-}
+// mixin Flying {
+//   void fly() {
+//     print('it is flying');
+//   }
+// }
 
-mixin Birds {
-  String? phrase;
-  void talk() {
-    print('it is talking');
-  }
-}
+// mixin Birds {
+//   String? phrase;
+//   void talk() {
+//     print('it is talking');
+//   }
+// }
 
-mixin Mechanism {
-  void repair() {
-    print('it is repairing');
-  }
-}
+// mixin Mechanism {
+//   void repair() {
+//     print('it is repairing');
+//   }
+// }
 
-class Duck with Flying, Birds {}
+// class Duck with Flying, Birds {}
 
-class Airplane with Flying, Mechanism {}
+// class Airplane with Flying, Mechanism {}
+
+// void main(List<String> args) {
+//   Duck().fly();
+//   Duck().talk();
+//   Airplane().repair();
+// }
 
 void main(List<String> args) {
-  Duck().fly();
-  Duck().talk();
-  Airplane().repair();
+  final x = 5;
+  x.toDouble();
+
+  final y = '6';
+  y.toDouble();
+}
+
+extension StringToDouble on String {
+  double? toDouble() {
+    return double.tryParse(this);
+  }
 }
