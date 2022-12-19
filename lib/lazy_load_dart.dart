@@ -602,16 +602,26 @@ abstract class Heavyweight {
 //   Airplane().repair();
 // }
 
-void main(List<String> args) {
-  final x = 5;
-  x.toDouble();
+// void main(List<String> args) {
+//   final x = 5;
+//   x.toDouble();
 
-  final y = '6';
-  y.toDouble();
-}
+//   final y = '6';
+//   y.toDouble();
+// }
 
-extension StringToDouble on String {
-  double? toDouble() {
-    return double.tryParse(this);
+// extension StringToDouble on String {
+//   double? toDouble() {
+//     return double.tryParse(this);
+//   }
+// }
+
+class Car {
+  int currentSpeed = 0;
+
+  void printCurrentSpeed() {
+    print(currentSpeed);
   }
 }
+
+void main(List<String> args) {}
