@@ -616,43 +616,92 @@ abstract class Heavyweight {
 //   }
 // }
 
-class Car {
-  int currentSpeed = 0;
-  static int totalCarCount = 0;
+// class Car {
+//   int currentSpeed = 0;
+//   static int totalCarCount = 0;
 
-  final double lenght;
-  static const double weight = 10;
+//   final double length;
+//   static const double weight = 10;
 
-  Car(this.lenght);
+//   Car(this.length);
 
-  double square() {
-    return lenght * weight;
-  }
+//   double square() {
+//     return length * weight;
+//   }
 
-  void printCurrentSpeed() {
-    print(currentSpeed);
-  }
+//   void printCurrentSpeed() {
+//     print(currentSpeed);
+//   }
 
-  static void printTotalCarCount() {
-    print(totalCarCount);
+//   static void printTotalCarCount() {
+//     print(totalCarCount);
+//   }
+// }
+
+// class Settings {
+//   static const minPasswordLength = 6;
+//   static const serverUrl = 'http://url.com';
+// }
+
+// void main(List<String> args) {
+//   final carOne = Car(15);
+//   carOne.currentSpeed = 100;
+//   carOne.printCurrentSpeed();
+
+//   Car.totalCarCount = 224;
+//   Car.printTotalCarCount();
+
+//   Settings.minPasswordLength;
+//   Settings.serverUrl;
+
+// }
+
+//Generics
+// int sum(int x, int y) {
+//   return x + y;
+// }
+
+T sumT<T extends num>(T x, T y) {
+  return (x + y) as T;
+}
+
+class Stack {
+  var storage = <int>[];
+
+  void push(int x) => storage.add(x);
+
+  int pop() => storage.removeLast();
+
+  @override
+  String toString() {
+    return storage.toString();
   }
 }
 
-class Settings {
-  static const minPasswordLenght = 6;
-  static const serverUrl = 'http://url.com';
-}
+void main() async {
+  // final result = sum(10, 15);
+  // print(result);
 
-void main(List<String> args) {
-  final carOne = Car(15);
-  carOne.currentSpeed = 100;
-  carOne.printCurrentSpeed();
+  final result = sumT(10.2, 15);
+  print(result);
 
-  Car.totalCarCount = 224;
-  Car.printTotalCarCount();
+  final myStack = Stack();
+  print(myStack);
+  myStack.push(56);
+  print(myStack);
+  myStack.push(875);
+  print(myStack);
+  myStack.push(-21);
+  print(myStack);
+  myStack.push(46);
+  print(myStack);
 
-  Settings.minPasswordLenght;
-  Settings.serverUrl;
-
-  //test ssl
+  final a = myStack.pop();
+  print('$a: $myStack');
+  final b = myStack.pop();
+  print('$b: $myStack');
+  final c = myStack.pop();
+  print('$c: $myStack');
+  // final d = myStack.pop();
+  // print('$d: $myStack');
 }
