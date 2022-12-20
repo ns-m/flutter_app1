@@ -661,6 +661,7 @@ abstract class Heavyweight {
 //   return x + y;
 // }
 
+//Generics
 T sumT<T extends num>(T x, T y) {
   return (x + y) as T;
 }
@@ -678,6 +679,25 @@ class Stack {
   }
 }
 
+//Generics
+class StackGen<Element> {
+  var storage = <Element>[];
+
+  void push(Element x) => storage.add(x);
+
+  Element pop() => storage.removeLast();
+
+  @override
+  String toString() {
+    return storage.toString();
+  }
+}
+
+//Generics
+String someFunc<T, R>(T aT, R bR) {
+  return '$aT $bR';
+}
+
 void main() async {
   // final result = sum(10, 15);
   // print(result);
@@ -685,23 +705,50 @@ void main() async {
   final result = sumT(10.2, 15);
   print(result);
 
-  final myStack = Stack();
-  print(myStack);
-  myStack.push(56);
-  print(myStack);
-  myStack.push(875);
-  print(myStack);
-  myStack.push(-21);
-  print(myStack);
-  myStack.push(46);
-  print(myStack);
+  final myStackInt = Stack();
+  print(myStackInt);
+  myStackInt.push(56);
+  print(myStackInt);
+  myStackInt.push(875);
+  print(myStackInt);
+  myStackInt.push(-21);
+  print(myStackInt);
+  myStackInt.push(46);
+  print(myStackInt);
 
-  final a = myStack.pop();
-  print('$a: $myStack');
-  final b = myStack.pop();
-  print('$b: $myStack');
-  final c = myStack.pop();
-  print('$c: $myStack');
-  // final d = myStack.pop();
-  // print('$d: $myStack');
+  final a = myStackInt.pop();
+  print('$a: $myStackInt');
+  final b = myStackInt.pop();
+  print('$b: $myStackInt');
+  final c = myStackInt.pop();
+  print('$c: $myStackInt');
+  final d = myStackInt.pop();
+  print('$d: $myStackInt');
+
+  print('--------------');
+
+  final myStackString = StackGen<String>();
+  print(myStackString);
+  myStackString.push('Lee');
+  print(myStackString);
+  myStackString.push('Joe');
+  print(myStackString);
+  myStackString.push('Mary');
+  print(myStackString);
+  myStackString.push('Ben');
+  print(myStackString);
+
+  final aS = myStackString.pop();
+  print('$aS: $myStackString');
+  final bS = myStackString.pop();
+  print('$bS: $myStackString');
+  final cS = myStackString.pop();
+  print('$cS: $myStackString');
+  final dS = myStackString.pop();
+  print('$dS: $myStackString');
+
+  print('--------------');
+
+  final myTR = someFunc('aT', 5.0);
+  print(myTR);
 }
