@@ -662,93 +662,117 @@ abstract class Heavyweight {
 // }
 
 //Generics
-T sumT<T extends num>(T x, T y) {
-  return (x + y) as T;
-}
+// T sumT<T extends num>(T x, T y) {
+//   return (x + y) as T;
+// }
 
-class Stack {
-  var storage = <int>[];
+// class Stack {
+//   var storage = <int>[];
 
-  void push(int x) => storage.add(x);
+//   void push(int x) => storage.add(x);
 
-  int pop() => storage.removeLast();
+//   int pop() => storage.removeLast();
 
-  @override
-  String toString() {
-    return storage.toString();
+//   @override
+//   String toString() {
+//     return storage.toString();
+//   }
+// }
+
+// //Generics
+// class StackGen<Element> {
+//   var storage = <Element>[];
+
+//   void push(Element x) => storage.add(x);
+
+//   Element pop() => storage.removeLast();
+
+//   @override
+//   String toString() {
+//     return storage.toString();
+//   }
+// }
+
+// //Generics
+// String someFunc<T, R>(T aT, R bR) {
+//   return '$aT $bR';
+// }
+
+// void main() async {
+//   // final result = sum(10, 15);
+//   // print(result);
+
+//   final result = sumT(10.2, 15);
+//   print(result);
+
+//   final myStackInt = Stack();
+//   print(myStackInt);
+//   myStackInt.push(56);
+//   print(myStackInt);
+//   myStackInt.push(875);
+//   print(myStackInt);
+//   myStackInt.push(-21);
+//   print(myStackInt);
+//   myStackInt.push(46);
+//   print(myStackInt);
+
+//   final a = myStackInt.pop();
+//   print('$a: $myStackInt');
+//   final b = myStackInt.pop();
+//   print('$b: $myStackInt');
+//   final c = myStackInt.pop();
+//   print('$c: $myStackInt');
+//   final d = myStackInt.pop();
+//   print('$d: $myStackInt');
+
+//   print('--------------');
+
+//   final myStackString = StackGen<String>();
+//   print(myStackString);
+//   myStackString.push('Lee');
+//   print(myStackString);
+//   myStackString.push('Joe');
+//   print(myStackString);
+//   myStackString.push('Mary');
+//   print(myStackString);
+//   myStackString.push('Ben');
+//   print(myStackString);
+
+//   final aS = myStackString.pop();
+//   print('$aS: $myStackString');
+//   final bS = myStackString.pop();
+//   print('$bS: $myStackString');
+//   final cS = myStackString.pop();
+//   print('$cS: $myStackString');
+//   final dS = myStackString.pop();
+//   print('$dS: $myStackString');
+
+//   print('--------------');
+
+//   final myTR = someFunc('aT', 5.0);
+//   print(myTR);
+// }
+
+//try/catch
+
+double? divisionOld(String aOld, String bOld) {
+  final aOld1 = int.tryParse(aOld);
+  final bOld1 = int.tryParse(bOld);
+  if (aOld1 != null && bOld1 != null) {
+    return aOld1 / bOld1;
+  } else {
+    return null;
   }
 }
 
-//Generics
-class StackGen<Element> {
-  var storage = <Element>[];
-
-  void push(Element x) => storage.add(x);
-
-  Element pop() => storage.removeLast();
-
-  @override
-  String toString() {
-    return storage.toString();
-  }
-}
-
-//Generics
-String someFunc<T, R>(T aT, R bR) {
-  return '$aT $bR';
-}
+double division(String a, String b) => int.parse(a) / int.parse(b);
 
 void main() async {
-  // final result = sum(10, 15);
-  // print(result);
-
-  final result = sumT(10.2, 15);
-  print(result);
-
-  final myStackInt = Stack();
-  print(myStackInt);
-  myStackInt.push(56);
-  print(myStackInt);
-  myStackInt.push(875);
-  print(myStackInt);
-  myStackInt.push(-21);
-  print(myStackInt);
-  myStackInt.push(46);
-  print(myStackInt);
-
-  final a = myStackInt.pop();
-  print('$a: $myStackInt');
-  final b = myStackInt.pop();
-  print('$b: $myStackInt');
-  final c = myStackInt.pop();
-  print('$c: $myStackInt');
-  final d = myStackInt.pop();
-  print('$d: $myStackInt');
-
-  print('--------------');
-
-  final myStackString = StackGen<String>();
-  print(myStackString);
-  myStackString.push('Lee');
-  print(myStackString);
-  myStackString.push('Joe');
-  print(myStackString);
-  myStackString.push('Mary');
-  print(myStackString);
-  myStackString.push('Ben');
-  print(myStackString);
-
-  final aS = myStackString.pop();
-  print('$aS: $myStackString');
-  final bS = myStackString.pop();
-  print('$bS: $myStackString');
-  final cS = myStackString.pop();
-  print('$cS: $myStackString');
-  final dS = myStackString.pop();
-  print('$dS: $myStackString');
-
-  print('--------------');
-
-  final myTR = someFunc('aT', 5.0);
-  print(myTR);
+  // final myDiv1 = division('5', 'my_null');
+  // print(myDiv1);
+  try {
+    final myDiv1 = division('5', 'my_null');
+  } catch (error) {
+    print(error);
+  }
 }
