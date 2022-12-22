@@ -756,6 +756,10 @@ abstract class Heavyweight {
 //try/catch
 
 class IncorrectParser {
+  final String incorrectString;
+
+  IncorrectParser(this.incorrectString);
+
   @override
   String toString() {
     return 'Incorrect parser string to int!';
@@ -774,9 +778,17 @@ double divisionOld(String aOld, String bOld) {
   final aOld1 = int.tryParse(aOld);
   final bOld1 = int.tryParse(bOld);
 
-  if (aOld1 == null || bOld1 == null) {
-    //return null;
-    throw IncorrectParser();
+  // if (aOld1 == null || bOld1 == null) {
+  //   //return null;
+  //   throw IncorrectParser();
+  // }
+
+  if (aOld1 == null) {
+    throw IncorrectParser(aOld);
+  }
+
+  if (bOld1 == null) {
+    throw IncorrectParser(bOld);
   }
 
   if (bOld1 == 0) {
