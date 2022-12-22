@@ -755,19 +755,41 @@ abstract class Heavyweight {
 
 //try/catch
 
-double? divisionOld(String aOld, String bOld) {
+class IncorrectParser {
+  @override
+  String toString() {
+    return 'Incorrect parser string to int!';
+  }
+}
+
+class DivisionByZero {
+  @override
+  String toString() {
+    return 'Division by Zero! Error!';
+  }
+}
+
+//double? divisionOld(String aOld, String bOld) {
+double divisionOld(String aOld, String bOld) {
   final aOld1 = int.tryParse(aOld);
   final bOld1 = int.tryParse(bOld);
 
   if (aOld1 == null || bOld1 == null) {
-    return null;
+    //return null;
+    throw IncorrectParser();
   }
 
-  if (aOld1 != null && bOld1 != null) {
-    return aOld1 / bOld1;
-  } else {
-    return null;
+  if (bOld1 == 0) {
+    //return null;
+    throw DivisionByZero();
   }
+
+  // if (aOld1 != null && bOld1 != null) {
+  //   return aOld1 / bOld1;
+  // } else {
+  //   return null;
+  // }
+  return aOld1 / bOld1;
 }
 
 double division(String a, String b) => int.parse(a) / int.parse(b);
@@ -776,7 +798,9 @@ void main() async {
   // final myDiv1 = division('5', 'my_null');
   // print(myDiv1);
   try {
-    final myDiv1 = division('5', 'my_null');
+    final myDiv1 = divisionOld('5', 'www1');
+    final myDiv2 = myDiv1 + 2;
+    print(myDiv2);
   } catch (error) {
     print(error);
   }
