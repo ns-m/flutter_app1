@@ -762,7 +762,7 @@ class IncorrectParser {
 
   @override
   String toString() {
-    return 'Incorrect parser string to int!';
+    return 'Incorrect parser string "$incorrectString" to int! ';
   }
 }
 
@@ -810,10 +810,16 @@ void main() async {
   // final myDiv1 = division('5', 'my_null');
   // print(myDiv1);
   try {
-    final myDiv1 = divisionOld('5', 'www1');
+    final myDiv1 = divisionOld('56', '0');
     final myDiv2 = myDiv1 + 2;
     print(myDiv2);
+  } on DivisionByZero catch (error) {
+    print(error);
+  } on IncorrectParser catch (error) {
+    print(error);
   } catch (error) {
     print(error);
+  } finally {
+    print('bye-bye');
   }
 }
