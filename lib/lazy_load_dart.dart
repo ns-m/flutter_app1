@@ -837,21 +837,23 @@ abstract class Heavyweight {
 //   print(6);
 //   //Future.delayed(duration)
 // }
-void download() {}
+// void download() {}
 
-void main() {
-  File('E:\\Save\\PycharmProjects\\flutter_app1\\lib\\test.txt')
-      .readAsString()
-      .then((String contents) {
-    print(contents);
-  });
+// void main() {
+//   File('E:\\Save\\PycharmProjects\\flutter_app1\\lib\\test.txt')
+//       .readAsString()
+//       .then((String contents) {
+//     print(contents);
+//   });
 
-  final fut1 = Future.delayed(Duration(seconds: 2));
-  fut1.whenComplete(() => print('fut1 complete'));
+//   final fut1 = Future.delayed(Duration(seconds: 2));
+//   fut1.whenComplete(() => print('fut1 complete'));
 
-  final fut2 = Future.delayed(Duration(seconds: 4));
-  fut2.whenComplete(() => print('fut2 complete'));
+//   final fut2 = Future.delayed(Duration(seconds: 4));
+//   fut2.whenComplete(() => print('fut2 complete'));
 
-  final fut3 = Future.wait([fut1, fut2]);
-  fut3.then((value) => print('fut3 complete!!!'));
-}
+//   final fut3 = Future.wait([fut1, fut2]);
+//   fut3.then((value) => print('fut3 complete!!!'));
+// }
+
+// async/await
