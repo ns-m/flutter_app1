@@ -1,0 +1,21 @@
+����� ������ ������ ���������
+#9000*529(Ok)
+550 - ����� � ��������� ���������� � ��������� ��������
+
+SHARP
+������� (#) ,Interrupt , Clear, interrupt (������)
+20 � Start � 01 � Start (���������)
+42 � Start � 01 � Start (��������)
+24 � Start � 06 � Start (��������)
+
+
+HP 2025 (�������� "�������)
+Default Paper Size:   Letter (Letter)
+Default Paper Type:   Plain (�������)
+Tray 1 Size:   Any size (����� ���)
+Tray 1 Type:   Any Type (����� ���)
+Tray 2 Size:    Letter (Letter)
+Tray 2 Type:   Heavy 111-130g (������� 111-130��.)
+Specify Time and Action
+        Paper Out Time:   0 Seconds
+        Paper Out Action:    Override (���� ��� ������: ��������)

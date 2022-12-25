@@ -335,6 +335,7 @@
 //}
 
 import 'dart:ffi';
+import 'dart:io';
 import 'dart:math';
 
 // enum Color {
@@ -755,71 +756,102 @@ abstract class Heavyweight {
 
 //try/catch
 
-class IncorrectParser {
-  final String incorrectString;
+// class IncorrectParser {
+//   final String incorrectString;
 
-  IncorrectParser(this.incorrectString);
+//   IncorrectParser(this.incorrectString);
 
-  @override
-  String toString() {
-    return 'Incorrect parser string "$incorrectString" to int! ';
-  }
-}
+//   @override
+//   String toString() {
+//     return 'Incorrect parser string "$incorrectString" to int! ';
+//   }
+// }
 
-class DivisionByZero {
-  @override
-  String toString() {
-    return 'Division by Zero! Error!';
-  }
-}
+// class DivisionByZero {
+//   @override
+//   String toString() {
+//     return 'Division by Zero! Error!';
+//   }
+// }
 
-//double? divisionOld(String aOld, String bOld) {
-double divisionOld(String aOld, String bOld) {
-  final aOld1 = int.tryParse(aOld);
-  final bOld1 = int.tryParse(bOld);
+// //double? divisionOld(String aOld, String bOld) {
+// double divisionOld(String aOld, String bOld) {
+//   final aOld1 = int.tryParse(aOld);
+//   final bOld1 = int.tryParse(bOld);
 
-  // if (aOld1 == null || bOld1 == null) {
-  //   //return null;
-  //   throw IncorrectParser();
-  // }
+//   // if (aOld1 == null || bOld1 == null) {
+//   //   //return null;
+//   //   throw IncorrectParser();
+//   // }
 
-  if (aOld1 == null) {
-    throw IncorrectParser(aOld);
-  }
+//   if (aOld1 == null) {
+//     throw IncorrectParser(aOld);
+//   }
 
-  if (bOld1 == null) {
-    throw IncorrectParser(bOld);
-  }
+//   if (bOld1 == null) {
+//     throw IncorrectParser(bOld);
+//   }
 
-  if (bOld1 == 0) {
-    //return null;
-    throw DivisionByZero();
-  }
+//   if (bOld1 == 0) {
+//     //return null;
+//     throw DivisionByZero();
+//   }
 
-  // if (aOld1 != null && bOld1 != null) {
-  //   return aOld1 / bOld1;
-  // } else {
-  //   return null;
-  // }
-  return aOld1 / bOld1;
-}
+//   // if (aOld1 != null && bOld1 != null) {
+//   //   return aOld1 / bOld1;
+//   // } else {
+//   //   return null;
+//   // }
+//   return aOld1 / bOld1;
+// }
 
-double division(String a, String b) => int.parse(a) / int.parse(b);
+// double division(String a, String b) => int.parse(a) / int.parse(b);
 
-void main() async {
-  // final myDiv1 = division('5', 'my_null');
-  // print(myDiv1);
-  try {
-    final myDiv1 = divisionOld('56', '0');
-    final myDiv2 = myDiv1 + 2;
-    print(myDiv2);
-  } on DivisionByZero catch (error) {
-    print(error);
-  } on IncorrectParser catch (error) {
-    print(error);
-  } catch (error) {
-    print(error);
-  } finally {
-    print('bye-bye');
-  }
+// void main() async {
+//   // final myDiv1 = division('5', 'my_null');
+//   // print(myDiv1);
+//   try {
+//     final myDiv1 = divisionOld('56', '0');
+//     final myDiv2 = myDiv1 + 2;
+//     print(myDiv2);
+//   } on DivisionByZero catch (error) {
+//     print(error);
+//   } on IncorrectParser catch (error) {
+//     print(error);
+//   } catch (error) {
+//     print(error);
+//   } finally {
+//     print('bye-bye');
+//   }
+// }
+
+//Future
+// void main() async {
+//   print(1);
+//   print(2);
+//   print(3);
+//   var waitingFuture = Future<Object?>.delayed(Duration(seconds: 5));
+//   waitingFuture.then((_) => print(55));
+//   print(4);
+//   print(5);
+//   print(6);
+//   //Future.delayed(duration)
+// }
+void download() {}
+
+void main() {
+  File('E:\\Save\\PycharmProjects\\flutter_app1\\lib\\test.txt')
+      .readAsString()
+      .then((String contents) {
+    print(contents);
+  });
+
+  final fut1 = Future.delayed(Duration(seconds: 2));
+  fut1.whenComplete(() => print('fut1 complete'));
+
+  final fut2 = Future.delayed(Duration(seconds: 4));
+  fut2.whenComplete(() => print('fut2 complete'));
+
+  final fut3 = Future.wait([fut1, fut2]);
+  fut3.then((value) => print('fut3 complete!!!'));
 }
