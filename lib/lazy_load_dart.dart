@@ -857,3 +857,18 @@ abstract class Heavyweight {
 // }
 
 // async/await
+// int sum(int x, int y) {
+//   return x + y;
+// }
+Future<int> sum(int x, int y) {
+  return Future.sync(() => x + y);
+}
+
+void main() {
+  final num1 = sum(2, 3);
+  print(num1);
+  // final num2 = sum(num1, 5);
+  // print(num2);
+  // final num3 = sum(num2, num1);
+  // print(num3);
+}
